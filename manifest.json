@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Mentify - Menti Auto Answer Fetcher",
+  "author": "J.",
+  "version": "1.0",
+  "description": "Fetches correct answers from Menti quiz pages and outputs them to the console for study purposes.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.menti.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.menti.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
